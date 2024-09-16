@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .flying-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    animation: fly 10s infinite;
+  }
+  
+  @keyframes fly {
+    0% {
+      top: 10%;
+      left: 10%;
+    }
+    25% {
+      top: 70%;
+      left: 20%;
+    }
+    50% {
+      top: 40%;
+      left: 80%;
+    }
+    75% {
+      top: 90%;
+      left: 60%;
+    }
+    100% {
+      top: 10%;
+      left: 10%;
+    }
+  }
+  
+  /* Popup-fönster som visas vid klick */
+  .popup {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    background-color: #f0f0f0;
+    display: none;
+  }
+  
+  .popup-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 50px;
+    margin: 0px 50px 0px;
+    background-color: #f4e1c1; /* Pergamentbrun bakgrundsfärg */
+    font-family: 'zai Olivetti-Underwood Studio 21 Typewriter', sans-serif;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 0.7rem;
+    opacity: 0;
+    position: relative;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* För hackiga kanter */
+    box-shadow: 
+        -5px -5px 15px -5px rgba(0, 0, 0, 0.3), 
+        5px 5px 15px -5px rgba(0, 0, 0, 0.3), 
+        inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+    /* Lite ojämn kantstil */
+    border: 2px solid #d4b692;
+}
+
+.popup-content::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2; /* Låg opacitet för textur */
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+  
+  /* Stängningskrysset */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close-btn:hover {
+    color: #ffcccc;
+  }
+  
+  /* Visa popup och tona in innehållet */
+  .popup.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content.show {
+    opacity: 1;
+  }
+
+
+  @media screen and (max-width: 800px) {
+    .popup-content {
+        padding: 30px;
+        margin: 0px 10px 0px;
+  }}
+
+  @media  screen and (max-width: 590px){
+    /* Visa popup och tona in innehållet */
+.popup.show {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+}
+
+
+
+  @media screen and (max-width: 450px) {
+    .popup-content {
+        padding: 10px;
+  }}
+
+  @media  screen and (max-width: 327px){
+    /* Visa popup och tona in innehållet */
+.popup.show {
+  margin-top: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+}
+
+
